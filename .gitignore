@@ -1,0 +1,13 @@
+env/
+library.db
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.env
+*.egg-info/
+.pytest_cache/
+.pytest_tmp/
+*.log
+frontend/test-results/
+frontend/playwright-report/
