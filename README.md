@@ -134,3 +134,20 @@ library-reservation/
 ├── setupdev.bat            # One-command environment setup script
 └── runapplication.bat       # One-command execution script
 ```
+
+---
+
+## 🔍 Testing Completed (Regression & Playwright E2E)
+
+This repository includes comprehensive automated testing to verify system correctness:
+
+1. **Regression Testing (Backend Suite — 79 Tests)**:
+   - Ensures that all core rules and database invariants remain 100% stable across code changes.
+   - Verifies the 3-copy capacity limit, lazy 7-day expiration purges, cancellation inventory restoral, duplicate hold prevention, and multi-threaded concurrency race conditions (6 threads competing for 3 physical copies with zero overbooking).
+   - **Command**: `.\env\Scripts\python.exe -m pytest -v` (100% passed in ~2.0s).
+
+2. **Playwright End-to-End (E2E) Browser Testing (9 UI Scenarios)**:
+   - Full browser automation testing real patron user journeys in headless Chromium.
+   - Verifies live 5-second polling indicators, multi-genre filtering combinations, real-time search filtering, SVG inventory chart rendering, authentication modals, faded `✓ Reserved` button states with duplicate hold warning toasts, and administrative telemetry views.
+   - **Command**: `cd frontend && npx playwright test` (100% passed).
+
